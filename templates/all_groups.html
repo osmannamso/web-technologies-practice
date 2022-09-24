@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All groups</title>
+</head>
+<body>
+    {% for center in centers %}
+        <div>
+            <h1>{{ center.name }}</h1>
+            {% for group in center.groups.all %}
+                <h3>{{ group.name }}</h3>
+                <div>
+                    <table border="1">
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                        </tr>
+                        {% for student in group.students.all %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ student.first_name }}</td>
+                                <td>{{ student.last_name }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</body>
+</html>
