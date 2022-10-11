@@ -13,3 +13,13 @@ def all_groups(request):
     }
 
     return HttpResponse(template.render(context, request))
+
+
+def about(request):
+    return HttpResponse('<h2>About Site</h2>')
+
+
+def contact(request):
+    context = {}
+    template = loader.get_template('contacts.html')
+    return HttpResponse(template.render(context, request))
